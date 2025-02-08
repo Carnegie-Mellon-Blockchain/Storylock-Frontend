@@ -82,63 +82,110 @@ export default function UploadForm({
         </div>
       )}
 
-      <input
-        type="url"
-        name="image"
-        placeholder="Image URL"
-        value={formData.image}
-        onChange={handleInputChange}
-        className="w-full p-2 border rounded text-black"
-      />
+      <div className="flex flex-col">
+        <label htmlFor="image" className="mb-1">
+          Image URL
+        </label>
+        <input
+          id="image"
+          type="url"
+          name="image"
+          placeholder="Image URL"
+          value={formData.image}
+          onChange={handleInputChange}
+          className="w-full p-2 border rounded text-black"
+        />
+      </div>
 
-      <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        value={formData.title}
-        onChange={handleInputChange}
-        className="w-full p-2 border rounded text-black"
-      />
-      <input
-        type="text"
-        name="description"
-        placeholder="Description"
-        value={formData.description}
-        onChange={handleInputChange}
-        className="w-full p-2 border rounded text-black"
-      />
-      <input
-        type="text"
-        name="type"
-        placeholder="Type"
-        value={formData.type}
-        onChange={handleInputChange}
-        className="w-full p-2 border rounded text-black"
-      />
-      <input
-        type="text"
-        name="author"
-        placeholder="Author"
-        value={formData.author}
-        onChange={handleInputChange}
-        className="w-full p-2 border rounded text-black"
-      />
-      <input
-        type="text"
-        name="timestamp"
-        placeholder="Timestamp"
-        value={formData.timestamp}
-        onChange={handleInputChange}
-        className="w-full p-2 border rounded text-black"
-      />
-      <input
-        type="text"
-        name="permanentUrl"
-        placeholder="Permanent URL"
-        value={formData.permanentUrl}
-        onChange={handleInputChange}
-        className="w-full p-2 border rounded text-black"
-      />
+      <div className="flex flex-col">
+        <label htmlFor="title" className="mb-1">
+          Title
+        </label>
+        <input
+          id="title"
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={formData.title}
+          onChange={handleInputChange}
+          className="w-full p-2 border rounded text-black"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="description" className="mb-1">
+          Description
+        </label>
+        <input
+          id="description"
+          type="text"
+          name="description"
+          placeholder="Description"
+          value={formData.description}
+          onChange={handleInputChange}
+          className="w-full p-2 border rounded text-black"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="type" className="mb-1">
+          Type
+        </label>
+        <input
+          id="type"
+          type="text"
+          name="type"
+          placeholder="Type"
+          value={formData.type}
+          onChange={handleInputChange}
+          className="w-full p-2 border rounded text-black"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="author" className="mb-1">
+          Author
+        </label>
+        <input
+          id="author"
+          type="text"
+          name="author"
+          placeholder="Author"
+          value={formData.author}
+          onChange={handleInputChange}
+          className="w-full p-2 border rounded text-black"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="timestamp" className="mb-1">
+          Timestamp
+        </label>
+        <input
+          id="timestamp"
+          type="text"
+          name="timestamp"
+          placeholder="Timestamp"
+          value={formData.timestamp}
+          onChange={handleInputChange}
+          className="w-full p-2 border rounded text-black"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="permanentUrl" className="mb-1">
+          Permanent URL
+        </label>
+        <input
+          id="permanentUrl"
+          type="text"
+          name="permanentUrl"
+          placeholder="Permanent URL"
+          value={formData.permanentUrl}
+          onChange={handleInputChange}
+          className="w-full p-2 border rounded text-black"
+        />
+      </div>
 
       <button
         onClick={handleSubmit}
