@@ -15,22 +15,18 @@ export default function Header() {
 
   return (
     <header className="p-4">
-      <div className="flex justify-center mb-4">
-        <img
-          src="https://i.imgur.com/INqu85z.png"
-          alt="Logo"
-          className="w-1/2"
-        />
+      <div className="flex justify-center mb-4 w-full">
+        <img src="/story_lock_black.png" alt="Logo" className="w-1/3" />
       </div>
-      <div className="max-w-4xl mx-auto flex justify-center gap-4">
+      <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-2">
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className={`px-4 py-2 rounded ${
+            className={`px-3 py-1 rounded text-sm ${
               currentPath === item.href
                 ? "bg-blue-500 text-white"
-                : "bg-gray-500 hover:bg-gray-700"
+                : "bg-gray-500 hover:bg-gray-700 text-white"
             }`}
           >
             {item.label}
