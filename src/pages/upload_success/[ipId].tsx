@@ -50,7 +50,7 @@ export default function UploadSuccess() {
           View at Story Explorer
         </a>
         <button
-          onClick={() => router.push("/upload")}
+          onClick={() => router.push("/xupload")}
           className="p-3 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors duration-200"
         >
           Upload Another

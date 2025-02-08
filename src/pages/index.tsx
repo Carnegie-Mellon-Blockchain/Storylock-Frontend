@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/upload");
+    router.push("/xupload");
   }, [router]);
 
   return null;
