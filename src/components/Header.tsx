@@ -8,12 +8,20 @@ export default function Header() {
 
   const navItems = [
     { href: "/xupload", label: "X Upload" },
+    { href: "/xcheck", label: "X Check" },
     { href: "/upload", label: "Upload" },
     { href: "/check", label: "Check" },
   ];
 
   return (
     <header className="p-4">
+      <div className="flex justify-center mb-4">
+        <img
+          src="https://i.imgur.com/INqu85z.png"
+          alt="Logo"
+          className="w-1/2"
+        />
+      </div>
       <div className="max-w-4xl mx-auto flex justify-center gap-4">
         {navItems.map((item) => (
           <Link

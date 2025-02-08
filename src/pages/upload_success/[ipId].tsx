@@ -1,6 +1,7 @@
 // src/pages/upload_success/[ipId].tsx
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 
 export default function UploadSuccess() {
   const router = useRouter();
@@ -27,8 +28,9 @@ export default function UploadSuccess() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8">
+      {<Confetti recycle={false} />}
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Upload Successful! 🎉</h1>
+        <h1 className="text-4xl font-bold mb-4">Upload Successful!</h1>
         <p className="text-xl mb-8">Your IP ID is: {ipId}</p>
       </div>
 
@@ -42,19 +44,27 @@ export default function UploadSuccess() {
         </div>
       )}
 
-      <div className="flex flex-col gap-4 w-full max-w-xs">
+      <div className="flex flex-col gap-4 w-full max-w-md">
         <a
           href={`https://explorer.story.foundation/ipa/${ipId}`}
-          className="p-3 text-white bg-green-500 rounded-lg hover:bg-green-600 text-center transition-colors duration-200"
+          className="w-full p-3 text-white bg-green-500 rounded-lg hover:bg-green-600 text-center transition-colors duration-200"
         >
           View at Story Explorer
         </a>
-        <button
-          onClick={() => router.push("/xupload")}
-          className="p-3 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors duration-200"
-        >
-          Upload Another
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={() => router.push("/xupload")}
+            className="flex-1 p-3 text-white bg-gray-500 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+          >
+            Upload Another
+          </button>
+          <button
+            onClick={() => router.push("/xcheck")}
+            className="flex-1 p-3 text-white bg-gray-500 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+          >
+            Check IP
+          </button>
+        </div>
       </div>
     </div>
   );

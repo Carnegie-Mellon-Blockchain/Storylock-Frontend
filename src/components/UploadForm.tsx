@@ -30,6 +30,7 @@ export default function UploadForm({
     timestamp: defaultValues.timestamp || "",
     permanentUrl: defaultValues.permanentUrl || "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -48,6 +49,7 @@ export default function UploadForm({
     }
 
     try {
+      setIsLoading(true);
       const response = await fetch("/api/ip/register", {
         method: "POST",
         headers: {
@@ -71,6 +73,8 @@ export default function UploadForm({
     } catch (error) {
       toast.error("Failed to register IP");
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -189,9 +193,10 @@ export default function UploadForm({
 
       <button
         onClick={handleSubmit}
-        className="w-full p-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+        disabled={isLoading}
+        className="w-full p-2 text-white bg-blue-500 rounded hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed"
       >
-        Register IP
+        {isLoading ? "Registering..." : "Register IP"}
       </button>
     </div>
   );

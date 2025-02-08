@@ -42,11 +42,6 @@ export default function XUpload() {
 
         {!formData && (
           <>
-            <img
-              src="https://i.imgur.com/INqu85z.png"
-              alt=""
-              className="w-1/2"
-            />
             <form onSubmit={handleUrlSubmit} className="w-full max-w-md">
               <div className="flex flex-col gap-4">
                 <input
