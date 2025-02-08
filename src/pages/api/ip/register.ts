@@ -6,6 +6,8 @@ import { NFTContractAddress, account, client } from "../../../utils/utils";
 import { uploadJSONToIPFS } from "../../../utils/uploadToIpfs";
 import { createHash } from "crypto";
 
+export const maxDuration = 150;
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
