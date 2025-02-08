@@ -50,6 +50,20 @@ export default function UploadForm({
 
     try {
       setIsLoading(true);
+
+      // Show progress messages
+      setTimeout(() => {
+        toast.info("Minting a new NFT...");
+      }, 1000);
+
+      setTimeout(() => {
+        toast.info("Registering IP...");
+      }, 6000);
+
+      setTimeout(() => {
+        toast.info("Indexing to Database...");
+      }, 10000);
+
       const response = await fetch("/api/ip/register", {
         method: "POST",
         headers: {

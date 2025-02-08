@@ -47,6 +47,7 @@ export default function UploadSuccess() {
       <div className="flex flex-col gap-4 w-full max-w-md">
         <a
           href={`https://explorer.story.foundation/ipa/${ipId}`}
+          target="_blank"
           className="w-full p-3 text-white bg-green-500 rounded-lg hover:bg-green-600 text-center transition-colors duration-200"
         >
           View at Story Explorer
