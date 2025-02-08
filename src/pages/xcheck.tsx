@@ -59,7 +59,10 @@ export default function XCheck() {
         if (data.results[i].score > 0.8) {
           setSimilarIp((prev) => [
             ...prev,
-            data.results[i].payload as IPayload,
+            {
+              ...(data.results[i].payload as IPayload),
+              score: data.results[i].score,
+            },
           ]);
         }
       }

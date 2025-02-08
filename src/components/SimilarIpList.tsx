@@ -27,6 +27,11 @@ const SimilarIpList: React.FC<SimilarIpListProps> = ({ similarIp }) => {
                       {ip.author} •{" "}
                       {new Date(ip.timestamp).toLocaleDateString()}
                     </p>
+                    {ip.score && (
+                      <p className="text-green-400 text-sm">
+                        Similarity: {(ip.score! * 100).toFixed(1)}%
+                      </p>
+                    )}
                   </div>
                 </div>
               </td>

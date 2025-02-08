@@ -70,7 +70,10 @@ export default function Check() {
       console.log("IP Check Result:", data);
       const filteredResults = data.results
         .filter((result: any) => result.score > 0.8)
-        .map((result: any) => result.payload as IPayload);
+        .map((result: any) => ({
+          ...result.payload,
+          score: result.score,
+        })) as IPayload[];
 
       setSimilarIp(filteredResults);
       setIsCheckCompleted(true);

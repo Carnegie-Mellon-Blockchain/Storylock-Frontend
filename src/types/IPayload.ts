@@ -15,4 +15,5 @@ export interface IPayload {
   tokenId: number;
   txHash: string;
   type: string;
+  score?: number;
 }

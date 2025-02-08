@@ -7,8 +7,8 @@ export default function Header() {
   const currentPath = router.pathname;
 
   const navItems = [
-    { href: "/xupload", label: "X Upload" },
-    { href: "/xcheck", label: "X Check" },
+    { href: "/xupload", label: "𝕏 Upload" },
+    { href: "/xcheck", label: "𝕏 Check" },
     { href: "/upload", label: "Upload" },
     { href: "/check", label: "Check" },
   ];

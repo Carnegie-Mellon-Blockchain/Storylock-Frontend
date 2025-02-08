@@ -43,7 +43,7 @@ export default async function handler(
 
     // Format response according to FormData structure
     const formattedResponse: FormData = {
-      title: `${tweet.tweetBy.userName}'s X Post`,
+      title: `${tweet.tweetBy.userName}'s 𝕏 Post`,
       description: tweet.fullText || "",
       image: tweet.media?.[0]?.url || "",
       type: "tweet",
