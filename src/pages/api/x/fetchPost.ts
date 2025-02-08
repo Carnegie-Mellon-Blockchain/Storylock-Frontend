@@ -26,16 +26,19 @@ export default async function handler(
     return res.status(400).json({ message: "URL parameter is required" });
   }
 
+  let tweetId = url;
+  if (url.startsWith("https://")) {
+    tweetId = url.split("/status/")[1]?.split("?")[0];
+  }
+
+  if (!tweetId) {
+    return res.status(400).json({ message: "Invalid Twitter URL or pid" });
+  }
+
   try {
-    // Extract tweet ID from URL
-    const tweetId = url.split("/status/")[1]?.split("?")[0];
-
-    if (!tweetId) {
-      return res.status(400).json({ message: "Invalid Twitter URL" });
-    }
-
     const rettiwt = new Rettiwt({ apiKey: process.env.TWITTER_COOKIES });
     const tweet = await rettiwt.tweet.details(tweetId);
+    console.log({ tweet });
 
     if (!tweet) {
       return res.status(404).json({ message: "Tweet not found" });

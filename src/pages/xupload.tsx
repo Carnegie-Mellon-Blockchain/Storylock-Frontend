@@ -1,9 +1,10 @@
 // src/pages/xupload.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 import UploadForm, { FormData } from "../components/UploadForm";
 import { toast } from "react-toastify";
+
 export default function XUpload() {
   const router = useRouter();
   const [url, setUrl] = useState(
@@ -11,11 +12,22 @@ export default function XUpload() {
   );
   const [formData, setFormData] = useState<FormData | null>(null);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const pid = params.get("pid");
+    if (pid) {
+      setUrl(pid);
+    }
+  }, []);
+
   const handleUrlSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      const tweetId = url.startsWith("https://")
+        ? url.split("/status/")[1]?.split("?")[0]
+        : url;
       const response = await fetch(
-        `/api/x/fetchPost?url=${encodeURIComponent(url)}`
+        `/api/x/fetchPost?url=${encodeURIComponent(tweetId)}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch post data");
@@ -45,7 +57,7 @@ export default function XUpload() {
             <form onSubmit={handleUrlSubmit} className="w-full max-w-md">
               <div className="flex flex-col gap-4">
                 <input
-                  type="url"
+                  type="text"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="Enter X (Twitter) Post URL"

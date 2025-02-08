@@ -106,7 +106,7 @@ export default function UploadForm({
         </label>
         <input
           id="image"
-          type="url"
+          type="text"
           name="image"
           placeholder="Image URL"
           value={formData.image}

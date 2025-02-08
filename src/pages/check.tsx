@@ -112,7 +112,7 @@ export default function Check() {
 
           <div className="flex gap-2">
             <input
-              type="url"
+              type="text"
               value={imageUrl}
               onChange={handleUrlChange}
               placeholder="Or enter image URL"

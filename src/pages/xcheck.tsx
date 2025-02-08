@@ -1,5 +1,5 @@
 // src/pages/xcheck.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { toast } from "react-toastify";
 import { IPayload } from "@/types/IPayload";
@@ -15,11 +15,22 @@ export default function XCheck() {
   const [similarIp, setSimilarIp] = useState<IPayload[]>([]);
   const [isCheckCompleted, setIsCheckCompleted] = useState(false);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const pid = params.get("pid");
+    if (pid) {
+      setUrl(pid);
+    }
+  }, []);
+
   const handleUrlSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      const tweetId = url.startsWith("https://")
+        ? url.split("/status/")[1]?.split("?")[0]
+        : url;
       const response = await fetch(
-        `/api/x/fetchPost?url=${encodeURIComponent(url)}`
+        `/api/x/fetchPost?url=${encodeURIComponent(tweetId)}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch post data");
@@ -99,7 +110,7 @@ export default function XCheck() {
           <form onSubmit={handleUrlSubmit} className="w-full max-w-md">
             <div className="flex flex-col gap-4">
               <input
-                type="url"
+                type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="Enter X (Twitter) Post URL"
